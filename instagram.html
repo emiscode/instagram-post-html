@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .share-button {
+            background-color: #5E5CE6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 8px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .fa-share::before {
+          margin-right: 4px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<button class="share-button" onclick="shareStory()"><i class="fa fa-share"></i> Share Story</button>
+
+<script>
+function shareStory() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'My Instagram Story',
+      text: 'Check out my story on Instagram!',
+      url: 'https://www.instagram.com/stories/cozinhascutari/3230074107877595826/',
+    })
+      .then(() => console.log('Shared successfully'))
+      .catch((error) => console.error('Error sharing:', error));
+  } else {
+    console.log('Web Share API not supported');
+  }
+}
+</script>
+
+</body>
+</html>
